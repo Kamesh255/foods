@@ -1,0 +1,26 @@
+.nav_box{
+    background-color:#3F51B5;
+    height: 70px;
+    display: flex;
+    align-items: center; 
+}
+.icon{
+    float: left;
+    margin-left: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 2px;
+    color: aliceblue;
+}
+.cart{
+     
+    color: aliceblue;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 800;
+    position: absolute;
+    right:10%;
+}
+ 

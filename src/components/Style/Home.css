@@ -1,0 +1,11 @@
+.btn{
+    background-color:#3F51B5;
+    color: aliceblue;
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+}
+.home_div{
+    padding: 10px; 
+    margin-top: 150px;
+}
