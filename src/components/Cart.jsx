@@ -20,17 +20,17 @@ const Cart = () => {
   });
   let totalItems = items.length;
 
-  const setCartData = () =>{
+  const setCartData = () => {
     let newPrice = 0;
     for (let i = 0; i < cartData.length; i++) {
       newPrice += cartData[i].price * cartData[i].quantity;
     }
     setTotal(newPrice);
-  }
+  };
   useEffect(() => {
-    setCartData(); 
+    setCartData();
     return () => {
-        setCartData();
+      setCartData();
     };
   }, [cartData, length]);
 
