@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect} from "react";
 import "./Style/Food.css";
 import { useSelector, useDispatch } from "react-redux";
 import { addCart, showFood } from "../redux/action";
@@ -45,7 +45,7 @@ const Food = () => {
                       onClick={() => {
                         handelAddCart(el.id);
                       }}
-                    >
+                    > 
                       Add Food +
                     </button>
                   </div>

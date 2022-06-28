@@ -1,4 +1,4 @@
-import { ADD_CART, DELETE_CART, SHOW_DATA } from "./actionType";
+import { ADD_CART, DEC_ITEM, DELETE_CART, INC_ITEM, SHOW_DATA } from "./actionType";
 
 const initState = {
     data: [],
@@ -35,6 +35,31 @@ export const reducer = (store = initState, { type, payload }) => {
                 }
             });
             return { ...store, cart: [...dcart] };
+            case INC_ITEM:
+             
+            var Incre = store.cart.map((e) => {
+              if (e.id === payload) {
+                let xyz = e;
+                xyz["quantity"] = xyz["quantity"] + 1;
+                return xyz; 
+              } else {
+                return e;
+              }
+            });
+            console.log("cartinc", Incre);
+            return { ...store, cart: [...Incre] };
+          case DEC_ITEM: 
+            var decre = store.cart.map((e) => {
+              if (e.id === payload) { 
+                let xyz = e;
+                xyz["quantity"] = xyz["quantity"] - 1;
+                return xyz;
+              } else {
+                return e;
+              }
+            });
+            console.log("cartdec", ...decre);
+            return { ...store, cart: [...decre] };
         default:
             return store;
     }

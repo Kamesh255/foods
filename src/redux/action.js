@@ -1,4 +1,4 @@
-import { ADD_CART, DELETE_CART, SHOW_DATA } from "./actionType";
+import { ADD_CART, DEC_ITEM, DELETE_CART, INC_ITEM, SHOW_DATA } from "./actionType";
 
 export const showData = (payload) => ({
     type: SHOW_DATA,
@@ -13,6 +13,14 @@ export const deleteCart = (payload) => ({
     payload: payload
 
 })
+export const incrementitem = (payload) => ({
+    type: INC_ITEM,
+    payload: payload,
+  });
+  export const decrementitem = (payload) => ({
+    type: DEC_ITEM,
+    payload: payload,
+  });
 
 let url = "https://flip-product-data.herokuapp.com/data";
 

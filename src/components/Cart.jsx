@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./Style/Cart.css";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteCart } from "../redux/action";
+import { decrementitem, deleteCart, incrementitem } from "../redux/action";
 import { Link } from "react-router-dom";
+import { AiOutlinePlus,AiOutlineMinus,AiTwotoneDelete} from "react-icons/ai";
 
 const Cart = () => {
   const [cart, setCart] = useState(false);
@@ -24,6 +25,12 @@ const Cart = () => {
       return e.id !== idx;
     });
     dispatch(deleteCart(idx));
+  };
+  const RemoveItem = (idx) => {
+    dispatch(decrementitem(idx));
+  };
+  const Additem = (idx) => {
+    dispatch(incrementitem(idx));
   };
 
   return (
@@ -55,11 +62,18 @@ const Cart = () => {
                       </div>
                       <div className="food_text">
                         <p>{el.name}</p>
-                        <p>Price : ₹{el.price}</p>
+                        <div style={{display:"flex"}}>
+                            <div><p>Price : ₹{el.price*el.quantity}</p></div>
+                            <div style={{marginLeft:"10px"}}><p> {`quantity: ${el.quantity}`}</p></div>
+                        </div> 
                         <div className="food_remove">
-                          <button onClick={() => handlecartRemove(el.id)}>
-                            Remove Food -
-                          </button>
+                            <button id="btn" onClick={() => Additem(el.id)}><AiOutlinePlus /></button>
+                            {el.quantity > 1 ? (
+                            <button style={{margin:"0 0 0 10px "}} onClick={() => RemoveItem(el.id)}><AiOutlineMinus /></button>
+                            ) : null} 
+                            <button style={{marginLeft:"10px"}}onClick={() => handlecartRemove(el.id)}>
+                                <AiTwotoneDelete />
+                            </button>
                         </div>
                       </div>
                     </div>
@@ -82,21 +96,23 @@ const Cart = () => {
                         <h4>{el.name}</h4>
                       </div>
                       <div>
-                        <h4>{el.price}</h4>
+                        <h4>{el.price*el.quantity}</h4>
                       </div>
                     </div>
                   </>
                 );
               })}
-              <hr />
+
+              {/* <hr />
               <div className="details">
                 <div>
                   <h4>Total Price</h4>
                 </div>
                 <div>
-                  <h4>{totalPrice}</h4>
+                  <h4>{}</h4>
                 </div>
-              </div>
+              </div> */}
+
               <br />
               <br />
             </div>

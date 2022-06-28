@@ -32,6 +32,28 @@
     padding: 5px;
     cursor: pointer;
 }
+.food_remove {
+    /* display: flex;  */
+    padding: 5px;
+}
+.food_remove > button{
+    width: fit-content;
+    gap: 5px;
+    margin: auto;
+    padding: 5px;
+    font-size:20px; 
+    background-color:#3F51B5 ;
+    border: none;
+    border-radius: 3px;
+    color: #FFFFFF;
+}
+.food_remove > button:hover{
+    background-color: red;
+}
+#btn:hover{
+    background-color: green;
+}
+ 
 
 @media (max-width:970px) {
     .cart_item{
