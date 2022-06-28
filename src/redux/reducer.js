@@ -34,7 +34,7 @@ export const reducer = (store = initState, { type, payload }) => {
                     return e;
                 }
             });
-            return { ...store, cart: [...dcart] };
+            return { ...store, cart:dcart };
             case INC_ITEM:
              
             var Incre = store.cart.map((e) => {

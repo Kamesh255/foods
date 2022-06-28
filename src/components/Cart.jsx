@@ -1,31 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Style/Cart.css";
 import { useDispatch, useSelector } from "react-redux";
 import { decrementitem, deleteCart, incrementitem } from "../redux/action";
 import { Link } from "react-router-dom";
-import { AiOutlinePlus,AiOutlineMinus,AiTwotoneDelete} from "react-icons/ai";
+import { AiOutlinePlus, AiOutlineMinus, AiTwotoneDelete } from "react-icons/ai";
+import { store } from "../redux/store";
 
 const Cart = () => {
   const [cart, setCart] = useState(false);
   const [upi, setUpi] = useState(false);
+  const [total, setTotal] = useState(0);
+  const [length, setLength] = useState(0);
 
   const dispatch = useDispatch();
-  const cartData = useSelector((state) => state.reducer.cart);
+  let cartData = useSelector((state) => state.reducer.cart);
+
   const items = cartData.map((el) => {
     return el.price;
   });
   let totalItems = items.length;
-  let totalPrice = 0;
-  for (let i = 0; i < totalItems; i++) {
-    totalPrice += items[i];
-  }
 
-  const handlecartRemove = (idx) => {
-    const filterdata = cartData.filter((e) => {
-      return e.id !== idx;
-    });
-    dispatch(deleteCart(idx));
+  useEffect(() => {
+    return () => {
+      let newPrice = 0;
+      for (let i = 0; i < cartData.length; i++) {
+        newPrice += cartData[i].price * cartData[i].quantity;
+      }
+      setTotal(newPrice);
+    };
+  }, [cartData, length]);
+
+  const handlecartRemove = async (idx) => {
+    await dispatch(deleteCart(idx));
+
+    let state = store.getState();
+    setLength(state.reducer.cart.length);
   };
+
   const RemoveItem = (idx) => {
     dispatch(decrementitem(idx));
   };
@@ -62,18 +73,32 @@ const Cart = () => {
                       </div>
                       <div className="food_text">
                         <p>{el.name}</p>
-                        <div style={{display:"flex"}}>
-                            <div><p>Price : ₹{el.price*el.quantity}</p></div>
-                            <div style={{marginLeft:"10px"}}><p> {`quantity: ${el.quantity}`}</p></div>
-                        </div> 
+                        <div style={{ display: "flex" }}>
+                          <div>
+                            <p>Price : ₹{el.price * el.quantity}</p>
+                          </div>
+                          <div style={{ marginLeft: "10px" }}>
+                            <p> {`quantity: ${el.quantity}`}</p>
+                          </div>
+                        </div>
                         <div className="food_remove">
-                            <button id="btn" onClick={() => Additem(el.id)}><AiOutlinePlus /></button>
-                            {el.quantity > 1 ? (
-                            <button style={{margin:"0 0 0 10px "}} onClick={() => RemoveItem(el.id)}><AiOutlineMinus /></button>
-                            ) : null} 
-                            <button style={{marginLeft:"10px"}}onClick={() => handlecartRemove(el.id)}>
-                                <AiTwotoneDelete />
+                          <button id="btn" onClick={() => Additem(el.id)}>
+                            <AiOutlinePlus />
+                          </button>
+                          {el.quantity > 1 ? (
+                            <button
+                              style={{ margin: "0 0 0 10px " }}
+                              onClick={() => RemoveItem(el.id)}
+                            >
+                              <AiOutlineMinus />
                             </button>
+                          ) : null}
+                          <button
+                            style={{ marginLeft: "10px" }}
+                            onClick={() => handlecartRemove(el.id)}
+                          >
+                            <AiTwotoneDelete />
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -96,22 +121,22 @@ const Cart = () => {
                         <h4>{el.name}</h4>
                       </div>
                       <div>
-                        <h4>{el.price*el.quantity}</h4>
+                        <h4>{el.price * el.quantity}</h4>
                       </div>
                     </div>
                   </>
                 );
               })}
 
-              {/* <hr />
+              <hr />
               <div className="details">
                 <div>
                   <h4>Total Price</h4>
                 </div>
                 <div>
-                  <h4>{}</h4>
+                  <h4>{total}</h4>
                 </div>
-              </div> */}
+              </div>
 
               <br />
               <br />
