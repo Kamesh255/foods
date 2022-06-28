@@ -4,7 +4,7 @@
     width: 80%;
     margin: auto;
     background-color: #fafafa;
-    min-height: 500px;
+    /* min-height: 500px; */
     display: grid;
     grid-template-columns: 74% 25% ;
     gap: 10px;
@@ -33,7 +33,15 @@
     cursor: pointer;
 }
 
-@media (max-width:450px) {
+@media (max-width:970px) {
+    .cart_item{
+        display:grid;
+        grid-template-columns:49% 49%;
+        gap: 10px;
+    }
+}
+
+@media (max-width:600px) {
     .cart_item{
         display:grid;
         grid-template-columns: 99%;
