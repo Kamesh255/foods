@@ -46,6 +46,7 @@
     border: none;
     border-radius: 3px;
     color: #FFFFFF;
+    cursor: pointer;
 }
 .food_remove > button:hover{
     background-color: red;
@@ -60,6 +61,9 @@
         display:grid;
         grid-template-columns:49% 49%;
         gap: 10px;
+    }
+    .input>input{
+        width: 100px;
     }
 }
 
