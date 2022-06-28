@@ -1,88 +1,28 @@
 {
     "data":[
         {
-            "id": 1 ,
-            "img":"https://tse2.mm.bing.net/th?id=OIP.bJ4LyVWfEVWZj37rY_z50wHaE7&pid=Api",
-            "name":"Pizza",
-            "price": 250
-        },
-        {
-            "id": 2 ,
+            "id":1,
             "img":"https://tse3.mm.bing.net/th?id=OIP.HQhJo-UTwwccCcZ9snmm3gHaEj&pid=Api",
             "name":"Burger",
             "price": 110
         },
+         {
+            "id": 2 ,
+            "img":"https://tse1.mm.bing.net/th?id=OIP.uNwY8cjU4_nMPWawWuMfJwHaE8&pid=Api",
+            "name":"french fry",
+            "price": 130
+        },
         {
-            "id": 3 ,
-            "img":"https://tse1.explicit.bing.net/th?id=OIP.cS_C6ewwiOikM9bzG2bqzQHaE6&pid=Api",
-            "name":"Nudels",
-            "price": 150
+            "id": 3,
+            "img":"https://tse2.mm.bing.net/th?id=OIP.vWRjULFQy2q3XmSzKtYS1AHaE6&pid=Api",
+            "name":"Coca Cola",
+            "price": 80
         },
         {
             "id": 4,
-            "img":"https://tse4.mm.bing.net/th?id=OIP.W_vYhH5VOqc1wDbKmM15YQHaEo&pid=Api",
-            "name":"Momo's",
-            "price": 100
-        },
-         {
-            "id": 5 ,
-            "img":"https://tse1.mm.bing.net/th?id=OIP.uNwY8cjU4_nMPWawWuMfJwHaE8&pid=Api",
-            "name":"french fry",
-            "price": 130
-        },
-        {
-            "id": 6 ,
             "img":"https://tse3.mm.bing.net/th?id=OIP.r2LiHdUrRG14xboWzrhznAHaE7&pid=Api",
             "name":"Pepsi",
             "price": 70
-        },
-        {
-            "id": 7 ,
-            "img":"https://tse2.mm.bing.net/th?id=OIP.vWRjULFQy2q3XmSzKtYS1AHaE6&pid=Api",
-            "name":"Coco Cola",
-            "price": 80
-        },
-        {
-            "id": 8 ,
-            "img":"https://tse2.mm.bing.net/th?id=OIP.bJ4LyVWfEVWZj37rY_z50wHaE7&pid=Api",
-            "name":"Pizza",
-            "price": 250
-        },
-        {
-            "id": 9 ,
-            "img":"https://tse3.mm.bing.net/th?id=OIP.HQhJo-UTwwccCcZ9snmm3gHaEj&pid=Api",
-            "name":"Burger",
-            "price": 110
-        },
-        {
-            "id": 10 ,
-            "img":"https://tse1.explicit.bing.net/th?id=OIP.cS_C6ewwiOikM9bzG2bqzQHaE6&pid=Api",
-            "name":"Nudels",
-            "price": 150
-        },
-        {
-            "id": 11,
-            "img":"https://tse4.mm.bing.net/th?id=OIP.W_vYhH5VOqc1wDbKmM15YQHaEo&pid=Api",
-            "name":"Momo's",
-            "price": 100
-        },
-         {
-            "id": 12 ,
-            "img":"https://tse1.mm.bing.net/th?id=OIP.uNwY8cjU4_nMPWawWuMfJwHaE8&pid=Api",
-            "name":"french fry",
-            "price": 130
-        },
-        {
-            "id": 13 ,
-            "img":"https://tse3.mm.bing.net/th?id=OIP.r2LiHdUrRG14xboWzrhznAHaE7&pid=Api",
-            "name":"Pepsi",
-            "price": 70
-        },
-        {
-            "id": 14,
-            "img":"https://tse2.mm.bing.net/th?id=OIP.vWRjULFQy2q3XmSzKtYS1AHaE6&pid=Api",
-            "name":"Coco Cola",
-            "price": 80
         } 
     ]
 }

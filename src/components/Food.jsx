@@ -2,6 +2,8 @@ import React, { useEffect} from "react";
 import "./Style/Food.css";
 import { useSelector, useDispatch } from "react-redux";
 import { addCart, showFood } from "../redux/action";
+import { AiOutlinePlus} from "react-icons/ai";
+
 
 const Food = () => {
   const dispatch = useDispatch();
@@ -46,7 +48,8 @@ const Food = () => {
                         handelAddCart(el.id);
                       }}
                     > 
-                      Add Food +
+                            
+                      {<AiOutlinePlus />}Add
                     </button>
                   </div>
                 </div>

@@ -20,13 +20,17 @@ const Cart = () => {
   });
   let totalItems = items.length;
 
+  const setCartData = () =>{
+    let newPrice = 0;
+    for (let i = 0; i < cartData.length; i++) {
+      newPrice += cartData[i].price * cartData[i].quantity;
+    }
+    setTotal(newPrice);
+  }
   useEffect(() => {
+    setCartData(); 
     return () => {
-      let newPrice = 0;
-      for (let i = 0; i < cartData.length; i++) {
-        newPrice += cartData[i].price * cartData[i].quantity;
-      }
-      setTotal(newPrice);
+        setCartData();
     };
   }, [cartData, length]);
 
@@ -48,12 +52,12 @@ const Cart = () => {
     <>
       <div>
         <br />
-        <h3>Welcome to cart page</h3>
+        <h3>Cart Page</h3>
         <br />
         <hr />
         <div className="cart_div">
           <div>
-            <h3>Your Dish</h3>
+            <h3>My Dish</h3>
             <br />
             <div className="cart_item">
               {cartData.map((el) => {
@@ -108,7 +112,7 @@ const Cart = () => {
             </div>
           </div>
           <div className="pyment_div">
-            <h3>Item's</h3>
+            <h3>Items</h3>
             <br />
             <div className="pyment_text">
               <h4>{`Total Quantity: ${totalItems}`}</h4>
@@ -142,24 +146,24 @@ const Cart = () => {
               <br />
             </div>
             <hr />
-            <h3>Paymant</h3>
+            <h3>Payment</h3>
             <div style={{ padding: "5px" }}>
               <div onClick={() => setCart(!cart)} className="payDiv">
                 <h4>Cart</h4>
                 {cart && (
                   <div className="input">
-                    <input type="text" placeholder="cart holder name" />
+                    <input type="text" placeholder="Card holder name" />
                     <br />
-                    <input type="number" placeholder="Card number" />
+                    <input type="number" placeholder="Card Number" />
                     <br />
-                    <input type="number" placeholder="enter your CVV" />
+                    <input type="number" placeholder="Enter your CVV" />
                     <br />
-                    <input type="number" placeholder="enter your pin" />
+                    <input type="number" placeholder="Enter your Pin" />
                     <br />
                     <br />
                     <Link to="/deliverd">
                       <button className="btn" style={{ padding: 5 }}>
-                        Pyment
+                        Payment
                       </button>
                     </Link>
                   </div>
@@ -177,7 +181,7 @@ const Cart = () => {
                     <br />
                     <Link to="/deliverd">
                       <button className="btn" style={{ padding: 5 }}>
-                        Pyment
+                        Payment
                       </button>
                     </Link>
                   </div>
