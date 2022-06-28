@@ -2,8 +2,9 @@ import './App.css';
 import Food from './components/Food';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
-import {Routes, Route,Link} from "react-router-dom"
+import {Routes, Route} from "react-router-dom"
 import Cart from './components/Cart';
+import Deliverd from './components/Deliverd';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path='/' element={<Home />}/>
         <Route path='/food' element={<Food />}/>
         <Route path='/cart' element={<Cart />}/>
+        <Route path='/deliverd' element={<Deliverd/>}/>
       </Routes>
     </div>
   );

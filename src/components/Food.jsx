@@ -1,35 +1,33 @@
 import React, { useEffect, useState } from 'react' 
 import "./Style/Food.css"
-const Food = () => {
-    const [cart, setCart] = useState([]) 
-    const handelAdd =(k)=>{
-        data.forEach((e)=>{
-            if(e.id === k){
-                setCart(e)
-                
-            }
-        })
-    }
-    console.log(cart)
-    const [data , setData] = useState([])
-   const  getFood = async () =>{
-    try{
-        const req = await fetch("https://flip-product-data.herokuapp.com/data")
-        const res = await req.json()
-        setData(res);
-    }catch(e){
-    console.log(e)        
-    }
-   }
+import { useSelector, useDispatch } from "react-redux";
+import {addCart, showFood } from '../redux/action';
 
-   useEffect((e)=>{
-    getFood()
-   },[])
-//    console.log(data)
+const Food = () => {
+
+  
+    const dispatch = useDispatch();  
+
+    useEffect((e)=>{
+        dispatch(showFood)
+    },[])
+
+    const handelAddCart = (idx) => {
+        foodData.forEach((e) => {
+          if (e.id === idx) {
+            dispatch(addCart(e));
+          }
+        });
+      };
+ 
+   const foodData = useSelector((state)=> state.reducer.data);
+   console.log(foodData)
+
+
   return (
         <>
         <div className='food'>
-            {data.map((el)=>{
+            {foodData.map((el)=>{
                 return(
                     <>
                     <div className='box'>
@@ -40,7 +38,7 @@ const Food = () => {
                             <p>{el.name}</p>
                             <p>Price : ₹{el.price}</p>
                             <div className='food_add'>
-                                <button onClick={()=>{handelAdd(el.id)}}>Add Food +</button> 
+                                <button onClick={()=>{handelAddCart(el.id)}}>Add Food +</button> 
                             </div>
                         </div>
                     </div>
