@@ -6,12 +6,12 @@ const Deliverd = () => {
     <>
       <div className="del_div">
         <div>
-          <h3>Thankyou To Order Dish's</h3>
+          <h2>Thankyou To Order Dishs</h2>
           <br />
           <br />
-          <h5>{`Your Payment Has Been Successfully`}</h5>
+          <h4>{`Your Payment Has Been Successfully`}</h4>
           <br />
-          <h6>{`Your order will be delivered within 15 minutes`}</h6>
+          <h5>{`Your order will be delivered within 15 minutes`}</h5>
         </div>
       </div>
     </>

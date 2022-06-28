@@ -7,11 +7,13 @@ import { AiOutlinePlus, AiOutlineMinus, AiTwotoneDelete } from "react-icons/ai";
 import { store } from "../redux/store";
 
 const Cart = () => {
+
+
   const [cart, setCart] = useState(false);
   const [upi, setUpi] = useState(false);
   const [total, setTotal] = useState(0);
   const [length, setLength] = useState(0);
-
+  
   const dispatch = useDispatch();
   let cartData = useSelector((state) => state.reducer.cart);
 
@@ -47,6 +49,8 @@ const Cart = () => {
   const Additem = (idx) => {
     dispatch(incrementitem(idx));
   };
+
+ 
 
   return (
     <>
@@ -140,54 +144,14 @@ const Cart = () => {
                 <div>
                   <h4>{total}</h4>
                 </div>
-              </div>
-
-              <br />
-              <br />
-            </div>
-            <hr />
-            <h3>Payment</h3>
-            <div style={{ padding: "5px" }}>
-              <div onClick={() => setCart(!cart)} className="payDiv">
-                <h4>Cart</h4>
-                {cart && (
-                  <div className="input">
-                    <input type="text" placeholder="Card holder name" />
-                    <br />
-                    <input type="number" placeholder="Card Number" />
-                    <br />
-                    <input type="number" placeholder="Enter your CVV" />
-                    <br />
-                    <input type="number" placeholder="Enter your Pin" />
-                    <br />
-                    <br />
-                    <Link to="/deliverd">
+              </div> 
+              <br /> 
+            </div> 
+            <Link to="/deliverd">
                       <button className="btn" style={{ padding: 5 }}>
-                        Payment
+                        Check-Out
                       </button>
-                    </Link>
-                  </div>
-                )}
-              </div>
-              <br />
-              <div onClick={() => setUpi(!upi)} className="payDiv">
-                <h4>UPI</h4>
-                {upi && (
-                  <div className="input">
-                    <input type="text" placeholder="UPI ID" />
-                    <br />
-                    <input type="text" placeholder="PIN" />
-                    <br />
-                    <br />
-                    <Link to="/deliverd">
-                      <button className="btn" style={{ padding: 5 }}>
-                        Payment
-                      </button>
-                    </Link>
-                  </div>
-                )}
-              </div>
-            </div>
+                    </Link> 
           </div>
         </div>
       </div>
