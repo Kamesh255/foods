@@ -142,7 +142,7 @@ const Cart = () => {
               <br />
             </div>
             <hr />
-            <h3>Pymant</h3>
+            <h3>Paymant</h3>
             <div style={{ padding: "5px" }}>
               <div onClick={() => setCart(!cart)} className="payDiv">
                 <h4>Cart</h4>
